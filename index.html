@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; connect-src 'self'; font-src 'self'; form-action 'none'; img-src 'self'; object-src 'none'; script-src 'self'; style-src 'self'">
+    <meta name="referrer" content="no-referrer">
+    <meta name="description" content="Sanitized research evidence from the DayJumper four-lane shadow router.">
+    <meta property="og:title" content="DayJumper Shadow Dashboard">
+    <meta property="og:description" content="Evidence first. No live orders.">
+    <meta property="og:image" content="assets/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="noindex,nofollow">
+    <title>DayJumper Shadow Dashboard</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <div class="shell">
+        <header class="topbar">
+          <div class="brand"><span class="brand-mark">DJ</span><div><p>DayJumper</p><span>Evidence dashboard</span></div></div>
+          <div class="mode-chip"><span class="pulse"></span>Shadow only</div>
+        </header>
+
+        <section class="hero">
+          <div><p class="eyebrow">Four-lane research router</p><h1>Evidence first. No live orders.</h1><p class="hero-copy">The public view contains aggregate research statistics only. Raw quotes, candidate evidence, credentials, and trade-level records stay on the private collector.</p></div>
+          <div class="status-card"><span>System state</span><strong id="status">SETUP REQUIRED</strong><small id="updated">Waiting for the first verified session</small></div>
+        </section>
+
+        <section class="metric-grid" aria-label="Evidence totals">
+          <article class="metric"><span>Verified sessions</span><strong id="sessions">0</strong><small id="session-target">Target 100</small></article>
+          <article class="metric"><span>Selected signals</span><strong id="signals">0</strong><small id="signal-target">Target 500</small></article>
+          <article class="metric"><span>Modeled outcomes</span><strong id="outcomes">0</strong><small>After quote and data rejection</small></article>
+        </section>
+
+        <section class="evidence-card">
+          <div class="section-heading"><div><p class="eyebrow">Evidence clock</p><h2>Progress toward review</h2></div><span>Parameters remain frozen</span></div>
+          <div class="progress-row">
+            <div><div class="progress-label"><span>Sessions</span><b id="session-percent">0%</b></div><div class="track"><i id="session-bar"></i></div></div>
+            <div><div class="progress-label"><span>Selected signals</span><b id="signal-percent">0%</b></div><div class="track"><i id="signal-bar"></i></div></div>
+          </div>
+        </section>
+
+        <section>
+          <div class="section-heading lane-heading"><div><p class="eyebrow">Independent hypotheses</p><h2>Lane scorecard</h2></div><span>Minimum 200 outcomes per lane</span></div>
+          <div class="lane-grid" id="lanes"></div>
+        </section>
+
+        <section class="quality-card">
+          <div><p class="eyebrow">Fail-closed inputs</p><h2>Data readiness</h2><p>A missing timestamp, quote, catalyst search, or borrow record rejects the affected counterfactual. It is never filled with an assumption.</p></div>
+          <ul id="checks"></ul>
+        </section>
+
+        <footer><span>Research only · Not investment advice</span><span>No broker or order capability</span></footer>
+      </div>
+    </main>
+    <noscript>This dashboard requires JavaScript to load the sanitized summary.</noscript>
+  </body>
+</html>
