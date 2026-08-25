@@ -18,6 +18,7 @@ class PublicSurfaceTests(unittest.TestCase):
             "assets/style.css",
             "assets/og.png",
             "data/public-summary.json",
+            "data/public-watchlist.json",
         ):
             self.assertTrue((ROOT / relative).is_file(), relative)
 
@@ -41,11 +42,27 @@ class PublicSurfaceTests(unittest.TestCase):
         for forbidden in ("api_key", "secret", "credential", "/var/lib", "raw_quote", "ticker"):
             self.assertNotIn(forbidden, rendered)
 
+    def test_public_watchlist_has_only_sanitized_fields(self) -> None:
+        payload = json.loads((ROOT / "data/public-watchlist.json").read_text(encoding="utf-8"))
+        self.assertEqual(
+            set(payload),
+            {"status", "sessionDate", "updatedAt", "featureCutoff", "feed", "candidateCount", "candidates"},
+        )
+        for candidate in payload["candidates"]:
+            self.assertEqual(
+                set(candidate),
+                {"rank", "ticker", "price", "gapPct", "rvol", "premarketVolume", "atr14", "spreadPct"},
+            )
+        rendered = json.dumps(payload).lower()
+        for forbidden in ("api_key", "secret", "credential", "/var/lib", "raw_quote", "bid", "ask", "catalyst", "borrow"):
+            self.assertNotIn(forbidden, rendered)
+
     def test_client_uses_text_nodes_for_remote_values(self) -> None:
         script = (ROOT / "assets/app.js").read_text(encoding="utf-8")
         for forbidden in ("innerHTML", "outerHTML", "insertAdjacentHTML", "eval("):
             self.assertNotIn(forbidden, script)
         self.assertIn("textContent", script)
+        self.assertIn('fetch("data/public-watchlist.json"', script)
 
     def test_social_card_is_1200_by_630(self) -> None:
         data = (ROOT / "assets/og.png").read_bytes()
