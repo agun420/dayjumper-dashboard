@@ -1,1 +1,810 @@
-{"status":"WAITING","sessionDate":null,"updatedAt":null,"featureCutoff":"09:29 ET","feed":"Alpaca SIP","candidateCount":0,"candidates":[]}
+{
+  "status": "FROZEN",
+  "sessionDate": "2026-08-25",
+  "updatedAt": "2026-08-25T14:20:22.395095+00:00",
+  "featureCutoff": "09:29 ET",
+  "feed": "Alpaca SIP",
+  "candidateCount": 80,
+  "candidates": [
+    {
+      "rank": 1,
+      "ticker": "BNS",
+      "price": 89.12,
+      "gapPct": 2.6,
+      "rvol": 9.92,
+      "premarketVolume": 7648,
+      "atr14": 1.43,
+      "spreadPct": 1.58
+    },
+    {
+      "rank": 2,
+      "ticker": "NKE",
+      "price": 39.44,
+      "gapPct": -3.21,
+      "rvol": 5.15,
+      "premarketVolume": 2233215,
+      "atr14": 1.07,
+      "spreadPct": 0.08
+    },
+    {
+      "rank": 3,
+      "ticker": "MSFT",
+      "price": 485.2,
+      "gapPct": -0.43,
+      "rvol": 4.6,
+      "premarketVolume": 1826620,
+      "atr14": 9.69,
+      "spreadPct": 0.23
+    },
+    {
+      "rank": 4,
+      "ticker": "V",
+      "price": 380.88,
+      "gapPct": -0.4,
+      "rvol": 2.63,
+      "premarketVolume": 174794,
+      "atr14": 6.51,
+      "spreadPct": 0.29
+    },
+    {
+      "rank": 5,
+      "ticker": "BMNR",
+      "price": 23.88,
+      "gapPct": -1.08,
+      "rvol": 2.58,
+      "premarketVolume": 3984007,
+      "atr14": 1.19,
+      "spreadPct": 0.08
+    },
+    {
+      "rank": 6,
+      "ticker": "MSTZ",
+      "price": 6.45,
+      "gapPct": 5.91,
+      "rvol": 2.28,
+      "premarketVolume": 3620847,
+      "atr14": 1.29,
+      "spreadPct": 0.16
+    },
+    {
+      "rank": 7,
+      "ticker": "BITX",
+      "price": 17.89,
+      "gapPct": -0.33,
+      "rvol": 2.15,
+      "premarketVolume": 3852105,
+      "atr14": 0.82,
+      "spreadPct": 0.06
+    },
+    {
+      "rank": 8,
+      "ticker": "BE",
+      "price": 213.54,
+      "gapPct": 4.67,
+      "rvol": 2.11,
+      "premarketVolume": 1077966,
+      "atr14": 19.7,
+      "spreadPct": 0.24
+    },
+    {
+      "rank": 9,
+      "ticker": "PFE",
+      "price": 27.96,
+      "gapPct": -0.04,
+      "rvol": 2.06,
+      "premarketVolume": 599879,
+      "atr14": 0.61,
+      "spreadPct": 0.32
+    },
+    {
+      "rank": 10,
+      "ticker": "BABA",
+      "price": 117.95,
+      "gapPct": -0.44,
+      "rvol": 2.04,
+      "premarketVolume": 1809673,
+      "atr14": 4.35,
+      "spreadPct": 0.01
+    },
+    {
+      "rank": 11,
+      "ticker": "ETHA",
+      "price": 18.55,
+      "gapPct": -0.59,
+      "rvol": 1.75,
+      "premarketVolume": 3572439,
+      "atr14": 0.58,
+      "spreadPct": 0.05
+    },
+    {
+      "rank": 12,
+      "ticker": "VOO",
+      "price": 704.42,
+      "gapPct": 0.37,
+      "rvol": 1.69,
+      "premarketVolume": 660133,
+      "atr14": 4.66,
+      "spreadPct": 0.0
+    },
+    {
+      "rank": 13,
+      "ticker": "IBIT",
+      "price": 44.53,
+      "gapPct": -0.25,
+      "rvol": 1.66,
+      "premarketVolume": 8615885,
+      "atr14": 1.16,
+      "spreadPct": 0.02
+    },
+    {
+      "rank": 14,
+      "ticker": "AMAT",
+      "price": 489.47,
+      "gapPct": 1.09,
+      "rvol": 1.64,
+      "premarketVolume": 419251,
+      "atr14": 26.19,
+      "spreadPct": 0.09
+    },
+    {
+      "rank": 15,
+      "ticker": "PATH",
+      "price": 16.29,
+      "gapPct": -1.69,
+      "rvol": 1.62,
+      "premarketVolume": 764364,
+      "atr14": 0.85,
+      "spreadPct": 0.92
+    },
+    {
+      "rank": 16,
+      "ticker": "BAC",
+      "price": 62.37,
+      "gapPct": 0.06,
+      "rvol": 1.5,
+      "premarketVolume": 95313,
+      "atr14": 1.06,
+      "spreadPct": 0.43
+    },
+    {
+      "rank": 17,
+      "ticker": "MSTR",
+      "price": 119.18,
+      "gapPct": -2.81,
+      "rvol": 1.46,
+      "premarketVolume": 2415058,
+      "atr14": 6.4,
+      "spreadPct": 0.19
+    },
+    {
+      "rank": 18,
+      "ticker": "NVDA",
+      "price": 211.07,
+      "gapPct": 1.24,
+      "rvol": 1.46,
+      "premarketVolume": 4101263,
+      "atr14": 5.89,
+      "spreadPct": 0.04
+    },
+    {
+      "rank": 19,
+      "ticker": "KO",
+      "price": 91.73,
+      "gapPct": -0.28,
+      "rvol": 1.46,
+      "premarketVolume": 106017,
+      "atr14": 1.34,
+      "spreadPct": 0.27
+    },
+    {
+      "rank": 20,
+      "ticker": "CDE",
+      "price": 20.41,
+      "gapPct": -2.25,
+      "rvol": 1.46,
+      "premarketVolume": 540815,
+      "atr14": 1.2,
+      "spreadPct": 0.49
+    },
+    {
+      "rank": 21,
+      "ticker": "PURR",
+      "price": 10.51,
+      "gapPct": -1.22,
+      "rvol": 1.38,
+      "premarketVolume": 983382,
+      "atr14": 0.69,
+      "spreadPct": 0.95
+    },
+    {
+      "rank": 22,
+      "ticker": "COIN",
+      "price": 176.87,
+      "gapPct": -1.45,
+      "rvol": 1.37,
+      "premarketVolume": 496897,
+      "atr14": 9.12,
+      "spreadPct": 0.22
+    },
+    {
+      "rank": 23,
+      "ticker": "RGTI",
+      "price": 16.82,
+      "gapPct": 2.75,
+      "rvol": 1.34,
+      "premarketVolume": 604805,
+      "atr14": 1.12,
+      "spreadPct": 0.06
+    },
+    {
+      "rank": 24,
+      "ticker": "CONL",
+      "price": 5.6,
+      "gapPct": -2.95,
+      "rvol": 1.28,
+      "premarketVolume": 3222131,
+      "atr14": 0.52,
+      "spreadPct": 0.18
+    },
+    {
+      "rank": 25,
+      "ticker": "HOOD",
+      "price": 103.25,
+      "gapPct": -0.36,
+      "rvol": 1.06,
+      "premarketVolume": 600209,
+      "atr14": 5.31,
+      "spreadPct": 0.02
+    },
+    {
+      "rank": 26,
+      "ticker": "SQQQ",
+      "price": 39.32,
+      "gapPct": -2.16,
+      "rvol": 1.05,
+      "premarketVolume": 4780675,
+      "atr14": 1.36,
+      "spreadPct": 0.03
+    },
+    {
+      "rank": 27,
+      "ticker": "AMD",
+      "price": 474.5,
+      "gapPct": 3.89,
+      "rvol": 1.04,
+      "premarketVolume": 862779,
+      "atr14": 21.75,
+      "spreadPct": 0.14
+    },
+    {
+      "rank": 28,
+      "ticker": "TLT",
+      "price": 83.09,
+      "gapPct": 0.64,
+      "rvol": 1.04,
+      "premarketVolume": 1412657,
+      "atr14": 0.67,
+      "spreadPct": 0.0
+    },
+    {
+      "rank": 29,
+      "ticker": "CRCL",
+      "price": 85.05,
+      "gapPct": -3.04,
+      "rvol": 1.03,
+      "premarketVolume": 1231915,
+      "atr14": 5.59,
+      "spreadPct": 0.12
+    },
+    {
+      "rank": 30,
+      "ticker": "TQQQ",
+      "price": 70.52,
+      "gapPct": 2.19,
+      "rvol": 1.02,
+      "premarketVolume": 4948965,
+      "atr14": 2.65,
+      "spreadPct": 0.03
+    },
+    {
+      "rank": 31,
+      "ticker": "XLE",
+      "price": 62.21,
+      "gapPct": -1.43,
+      "rvol": 1.01,
+      "premarketVolume": 217614,
+      "atr14": 1.2,
+      "spreadPct": 0.21
+    },
+    {
+      "rank": 32,
+      "ticker": "SLV",
+      "price": 61.14,
+      "gapPct": -1.7,
+      "rvol": 0.99,
+      "premarketVolume": 1688637,
+      "atr14": 1.8,
+      "spreadPct": 0.03
+    },
+    {
+      "rank": 33,
+      "ticker": "SOXL",
+      "price": 117.38,
+      "gapPct": 5.6,
+      "rvol": 0.98,
+      "premarketVolume": 7917945,
+      "atr14": 13.61,
+      "spreadPct": 0.03
+    },
+    {
+      "rank": 34,
+      "ticker": "TSM",
+      "price": 414.5,
+      "gapPct": 1.07,
+      "rvol": 0.95,
+      "premarketVolume": 243256,
+      "atr14": 11.24,
+      "spreadPct": 0.07
+    },
+    {
+      "rank": 35,
+      "ticker": "IONQ",
+      "price": 41.96,
+      "gapPct": 2.19,
+      "rvol": 0.93,
+      "premarketVolume": 805821,
+      "atr14": 2.92,
+      "spreadPct": 0.1
+    },
+    {
+      "rank": 36,
+      "ticker": "IREN",
+      "price": 40.11,
+      "gapPct": 0.75,
+      "rvol": 0.92,
+      "premarketVolume": 1957067,
+      "atr14": 3.42,
+      "spreadPct": 0.05
+    },
+    {
+      "rank": 37,
+      "ticker": "SPY",
+      "price": 766.36,
+      "gapPct": 0.38,
+      "rvol": 0.85,
+      "premarketVolume": 787358,
+      "atr14": 5.1,
+      "spreadPct": 0.0
+    },
+    {
+      "rank": 38,
+      "ticker": "NFLX",
+      "price": 79.84,
+      "gapPct": -0.21,
+      "rvol": 0.85,
+      "premarketVolume": 421836,
+      "atr14": 2.23,
+      "spreadPct": 0.38
+    },
+    {
+      "rank": 39,
+      "ticker": "SOXX",
+      "price": 516.0,
+      "gapPct": 1.94,
+      "rvol": 0.82,
+      "premarketVolume": 231390,
+      "atr14": 18.25,
+      "spreadPct": 0.07
+    },
+    {
+      "rank": 40,
+      "ticker": "SNXX",
+      "price": 13.83,
+      "gapPct": 5.98,
+      "rvol": 0.82,
+      "premarketVolume": 12266524,
+      "atr14": 2.41,
+      "spreadPct": 0.07
+    },
+    {
+      "rank": 41,
+      "ticker": "IWM",
+      "price": 299.56,
+      "gapPct": 0.53,
+      "rvol": 0.82,
+      "premarketVolume": 389803,
+      "atr14": 2.94,
+      "spreadPct": 0.01
+    },
+    {
+      "rank": 42,
+      "ticker": "INTC",
+      "price": 90.05,
+      "gapPct": 3.2,
+      "rvol": 0.82,
+      "premarketVolume": 4117394,
+      "atr14": 5.32,
+      "spreadPct": 0.08
+    },
+    {
+      "rank": 43,
+      "ticker": "AAOI",
+      "price": 112.0,
+      "gapPct": 4.06,
+      "rvol": 0.81,
+      "premarketVolume": 633288,
+      "atr14": 16.81,
+      "spreadPct": 0.56
+    },
+    {
+      "rank": 44,
+      "ticker": "QQQ",
+      "price": 711.52,
+      "gapPct": 0.74,
+      "rvol": 0.8,
+      "premarketVolume": 1117180,
+      "atr14": 8.69,
+      "spreadPct": 0.01
+    },
+    {
+      "rank": 45,
+      "ticker": "LRCX",
+      "price": 316.26,
+      "gapPct": 1.96,
+      "rvol": 0.79,
+      "premarketVolume": 52346,
+      "atr14": 16.72,
+      "spreadPct": 0.32
+    },
+    {
+      "rank": 46,
+      "ticker": "SOXS",
+      "price": 47.8,
+      "gapPct": -5.81,
+      "rvol": 0.79,
+      "premarketVolume": 6775488,
+      "atr14": 4.39,
+      "spreadPct": 0.02
+    },
+    {
+      "rank": 47,
+      "ticker": "SMR",
+      "price": 9.19,
+      "gapPct": 1.55,
+      "rvol": 0.79,
+      "premarketVolume": 537433,
+      "atr14": 0.64,
+      "spreadPct": 0.11
+    },
+    {
+      "rank": 48,
+      "ticker": "SNDK",
+      "price": 1536.74,
+      "gapPct": 2.92,
+      "rvol": 0.77,
+      "premarketVolume": 883172,
+      "atr14": 134.38,
+      "spreadPct": 0.21
+    },
+    {
+      "rank": 49,
+      "ticker": "CIFR",
+      "price": 15.58,
+      "gapPct": 1.43,
+      "rvol": 0.76,
+      "premarketVolume": 533066,
+      "atr14": 1.84,
+      "spreadPct": 0.77
+    },
+    {
+      "rank": 50,
+      "ticker": "SOFI",
+      "price": 18.3,
+      "gapPct": 0.33,
+      "rvol": 0.75,
+      "premarketVolume": 709648,
+      "atr14": 0.74,
+      "spreadPct": 0.05
+    },
+    {
+      "rank": 51,
+      "ticker": "TSLA",
+      "price": 350.05,
+      "gapPct": 0.32,
+      "rvol": 0.75,
+      "premarketVolume": 583328,
+      "atr14": 11.95,
+      "spreadPct": 0.03
+    },
+    {
+      "rank": 52,
+      "ticker": "MCHP",
+      "price": 75.34,
+      "gapPct": 1.52,
+      "rvol": 0.75,
+      "premarketVolume": 28491,
+      "atr14": 3.8,
+      "spreadPct": 1.99
+    },
+    {
+      "rank": 53,
+      "ticker": "KORU",
+      "price": 20.28,
+      "gapPct": 8.1,
+      "rvol": 0.73,
+      "premarketVolume": 6135886,
+      "atr14": 2.35,
+      "spreadPct": 0.05
+    },
+    {
+      "rank": 54,
+      "ticker": "MARA",
+      "price": 11.08,
+      "gapPct": -0.89,
+      "rvol": 0.71,
+      "premarketVolume": 823899,
+      "atr14": 0.87,
+      "spreadPct": 0.09
+    },
+    {
+      "rank": 55,
+      "ticker": "HL",
+      "price": 19.96,
+      "gapPct": -2.16,
+      "rvol": 0.71,
+      "premarketVolume": 265340,
+      "atr14": 1.06,
+      "spreadPct": 0.75
+    },
+    {
+      "rank": 56,
+      "ticker": "MU",
+      "price": 930.08,
+      "gapPct": 2.16,
+      "rvol": 0.7,
+      "premarketVolume": 1298155,
+      "atr14": 56.66,
+      "spreadPct": 0.09
+    },
+    {
+      "rank": 57,
+      "ticker": "SNDQ",
+      "price": 15.81,
+      "gapPct": -5.84,
+      "rvol": 0.69,
+      "premarketVolume": 3591807,
+      "atr14": 3.8,
+      "spreadPct": 0.25
+    },
+    {
+      "rank": 58,
+      "ticker": "GLD",
+      "price": 423.48,
+      "gapPct": -0.75,
+      "rvol": 0.68,
+      "premarketVolume": 499982,
+      "atr14": 8.01,
+      "spreadPct": 0.02
+    },
+    {
+      "rank": 59,
+      "ticker": "AVGO",
+      "price": 360.97,
+      "gapPct": 0.62,
+      "rvol": 0.67,
+      "premarketVolume": 305400,
+      "atr14": 13.57,
+      "spreadPct": 0.22
+    },
+    {
+      "rank": 60,
+      "ticker": "TSLL",
+      "price": 9.09,
+      "gapPct": 0.5,
+      "rvol": 0.66,
+      "premarketVolume": 2153483,
+      "atr14": 0.6,
+      "spreadPct": 0.11
+    },
+    {
+      "rank": 61,
+      "ticker": "GLW",
+      "price": 150.92,
+      "gapPct": 3.69,
+      "rvol": 0.65,
+      "premarketVolume": 146369,
+      "atr14": 9.68,
+      "spreadPct": 0.51
+    },
+    {
+      "rank": 62,
+      "ticker": "GOOGL",
+      "price": 349.24,
+      "gapPct": 0.34,
+      "rvol": 0.64,
+      "premarketVolume": 329616,
+      "atr14": 8.01,
+      "spreadPct": 0.05
+    },
+    {
+      "rank": 63,
+      "ticker": "CRWD",
+      "price": 192.0,
+      "gapPct": 0.69,
+      "rvol": 0.64,
+      "premarketVolume": 53655,
+      "atr14": 8.91,
+      "spreadPct": 0.43
+    },
+    {
+      "rank": 64,
+      "ticker": "META",
+      "price": 564.24,
+      "gapPct": 0.93,
+      "rvol": 0.62,
+      "premarketVolume": 281732,
+      "atr14": 17.06,
+      "spreadPct": 0.03
+    },
+    {
+      "rank": 65,
+      "ticker": "SMH",
+      "price": 556.0,
+      "gapPct": 1.68,
+      "rvol": 0.62,
+      "premarketVolume": 102301,
+      "atr14": 16.0,
+      "spreadPct": 0.3
+    },
+    {
+      "rank": 66,
+      "ticker": "DRAM",
+      "price": 55.98,
+      "gapPct": 3.13,
+      "rvol": 0.61,
+      "premarketVolume": 2910892,
+      "atr14": 3.3,
+      "spreadPct": 0.05
+    },
+    {
+      "rank": 67,
+      "ticker": "ASTS",
+      "price": 63.22,
+      "gapPct": 1.4,
+      "rvol": 0.6,
+      "premarketVolume": 237219,
+      "atr14": 4.7,
+      "spreadPct": 0.57
+    },
+    {
+      "rank": 68,
+      "ticker": "NBIS",
+      "price": 217.71,
+      "gapPct": 3.22,
+      "rvol": 0.6,
+      "premarketVolume": 1124508,
+      "atr14": 23.33,
+      "spreadPct": 0.19
+    },
+    {
+      "rank": 69,
+      "ticker": "GOOG",
+      "price": 345.78,
+      "gapPct": 0.35,
+      "rvol": 0.59,
+      "premarketVolume": 209857,
+      "atr14": 7.55,
+      "spreadPct": 0.05
+    },
+    {
+      "rank": 70,
+      "ticker": "CRWV",
+      "price": 88.29,
+      "gapPct": 2.37,
+      "rvol": 0.58,
+      "premarketVolume": 876962,
+      "atr14": 7.76,
+      "spreadPct": 0.23
+    },
+    {
+      "rank": 71,
+      "ticker": "TEM",
+      "price": 66.41,
+      "gapPct": 0.36,
+      "rvol": 0.57,
+      "premarketVolume": 131489,
+      "atr14": 4.69,
+      "spreadPct": 0.29
+    },
+    {
+      "rank": 72,
+      "ticker": "MRVL",
+      "price": 237.07,
+      "gapPct": 3.39,
+      "rvol": 0.57,
+      "premarketVolume": 832526,
+      "atr14": 16.64,
+      "spreadPct": 0.17
+    },
+    {
+      "rank": 73,
+      "ticker": "GDX",
+      "price": 102.03,
+      "gapPct": -1.46,
+      "rvol": 0.57,
+      "premarketVolume": 584791,
+      "atr14": 3.87,
+      "spreadPct": 0.33
+    },
+    {
+      "rank": 74,
+      "ticker": "QQQM",
+      "price": 292.98,
+      "gapPct": 0.75,
+      "rvol": 0.57,
+      "premarketVolume": 87165,
+      "atr14": 3.54,
+      "spreadPct": 0.01
+    },
+    {
+      "rank": 75,
+      "ticker": "EWY",
+      "price": 178.58,
+      "gapPct": 2.84,
+      "rvol": 0.54,
+      "premarketVolume": 537923,
+      "atr14": 6.98,
+      "spreadPct": 0.13
+    },
+    {
+      "rank": 76,
+      "ticker": "MUU",
+      "price": 29.12,
+      "gapPct": 4.34,
+      "rvol": 0.54,
+      "premarketVolume": 2035129,
+      "atr14": 3.58,
+      "spreadPct": 0.34
+    },
+    {
+      "rank": 77,
+      "ticker": "RKLB",
+      "price": 69.68,
+      "gapPct": 2.05,
+      "rvol": 0.54,
+      "premarketVolume": 605620,
+      "atr14": 5.37,
+      "spreadPct": 0.39
+    },
+    {
+      "rank": 78,
+      "ticker": "SMCI",
+      "price": 36.15,
+      "gapPct": 2.79,
+      "rvol": 0.53,
+      "premarketVolume": 1203501,
+      "atr14": 2.54,
+      "spreadPct": 0.14
+    },
+    {
+      "rank": 79,
+      "ticker": "SKHY",
+      "price": 159.7,
+      "gapPct": 2.79,
+      "rvol": 0.53,
+      "premarketVolume": 1515223,
+      "atr14": 10.09,
+      "spreadPct": 0.14
+    },
+    {
+      "rank": 80,
+      "ticker": "AMZN",
+      "price": 262.61,
+      "gapPct": 0.21,
+      "rvol": 0.49,
+      "premarketVolume": 278688,
+      "atr14": 6.14,
+      "spreadPct": 0.1
+    }
+  ]
+}
