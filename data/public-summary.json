@@ -1,9 +1,9 @@
 {
   "status": "COLLECTING",
-  "updatedAt": "2026-08-27T20:10:27.717398+00:00",
-  "sessions": 2,
-  "selectedSignals": 33,
-  "modeledOutcomes": 26,
+  "updatedAt": "2026-08-28T20:10:28.912374+00:00",
+  "sessions": 3,
+  "selectedSignals": 49,
+  "modeledOutcomes": 40,
   "targetSessions": 100,
   "targetSignals": 500,
   "lanes": [
@@ -31,10 +31,10 @@
       "id": "orb_control",
       "name": "ORB control",
       "role": "Benchmark",
-      "outcomes": 26,
-      "expectancyR": -1.4290965130054103,
-      "winRate": 3.8461538461538463,
-      "drawdownR": 37.156509338140665,
+      "outcomes": 40,
+      "expectancyR": -1.4135790689059562,
+      "winRate": 5.0,
+      "drawdownR": 56.54316275623824,
       "gate": "Collecting"
     },
     {
