@@ -12,15 +12,15 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="robots" content="noindex,nofollow">
     <title>DayJumper · Research Observatory</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/app.js" defer></script>
+    <link rel="stylesheet" href="assets/style.css?v=20260906b">
+    <script src="assets/app.js?v=20260906b" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#watchlist">Skip to watchlist</a><main>
       <div class="shell">
         <header class="topbar">
           <div class="brand"><span class="brand-mark">DJ</span><div><p>DayJumper</p><span>RESEARCH OBSERVATORY</span></div></div>
-          <div class="top-actions"><button id="theme-toggle" aria-label="Switch color theme">◐ <span>Appearance</span></button><a href="#watchlist">Morning watchlist</a><div class="mode-chip"><span class="pulse"></span>Shadow only</div></div>
+          <div class="top-actions"><button id="theme-toggle" aria-label="Switch color theme">◐ <span>Appearance</span></button><a href="#watchlist">Watchlist</a><a href="#chart-panel">Charts</a><a href="#evidence">Evidence</a><div class="mode-chip"><span class="pulse"></span>Shadow only</div></div>
         </header>
 
         <section class="hero">
@@ -49,8 +49,8 @@
           <p class="watchlist-note">Screening candidates only—not entry signals. The list is frozen to prevent hindsight and does not update with intraday price movement.</p>
         </section>
 
-        <section class="evidence-card" id="chart-panel"><p class="eyebrow">Explore the ticker</p><h2>Market chart</h2><p class="section-note">Select a ticker in the watchlist or news. Confirm the exchange in TradingView. Chart data availability and delays depend on TradingView.</p><div id="chart" class="chart-host"></div><a id="chart-link" href="https://www.tradingview.com/chart/" target="_blank" rel="noopener noreferrer">Open chart on TradingView ↗</a></section>
-<section class="evidence-card" id="news-panel"><p class="eyebrow">Catalyst observatory</p><h2>News & directional hypotheses</h2><p id="news-status" role="status">News worker not connected yet.</p><p class="section-note">Headline sentiment, not measured trader sentiment. Uncalibrated rules; no validated win rate. Publications may lag streaming intake by five minutes or more.</p><div id="news-items"></div></section><section class="metric-grid" id="evidence" aria-label="Evidence totals">
+        <div class="market-workspace"><section class="evidence-card" id="chart-panel"><p class="eyebrow">Explore the ticker</p><h2>Market chart</h2><p class="section-note">Select a ticker in the watchlist or news. Confirm the exchange in TradingView. Chart data availability and delays depend on TradingView.</p><div id="chart" class="chart-host tradingview-widget-container"></div><a id="chart-link" href="https://www.tradingview.com/chart/" target="_blank" rel="noopener noreferrer">Open chart on TradingView ↗</a></section>
+<section class="evidence-card" id="news-panel"><p class="eyebrow">Catalyst observatory</p><h2>Catalyst news</h2><p id="news-status" role="status">Checking for a published news snapshot…</p><p class="section-note">Headline sentiment, not measured trader sentiment. Uncalibrated rules; no validated win rate. Publications may lag streaming intake by five minutes or more.</p><div id="news-items" aria-live="polite"></div></section></div><section class="metric-grid" id="evidence" aria-label="Evidence totals">
           <article class="metric"><span>Reported sessions</span><strong id="sessions">0</strong><small id="session-target">Target 100</small></article>
           <article class="metric"><span>Selected signals</span><strong id="signals">0</strong><small id="signal-target">Target 500</small></article>
           <article class="metric"><span>Modeled outcomes</span><strong id="outcomes">0</strong><small>After quote and data rejection</small></article>

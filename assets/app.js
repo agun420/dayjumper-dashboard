@@ -157,8 +157,10 @@ byId("theme-toggle").addEventListener("click", () => {
   byId("theme-toggle").setAttribute("aria-pressed", document.documentElement.classList.contains("dark"));
 });
 
+let activeChartTicker = "NASDAQ:AAPL";
 function showChart(ticker) {
   if (!/^[A-Z][A-Z0-9.:-]{0,25}$/.test(ticker)) return;
+  activeChartTicker = ticker;
   const host = byId("chart");
   host.replaceChildren();
   const widget = element("div", "tradingview-widget-container__widget");
@@ -178,10 +180,15 @@ byId("watchlist-rows").addEventListener("click", e => {
 async function loadNews() {
   try {
     const response=await fetch("data/public-news.json",{cache:"no-store"});
+    if(response.status === 404) {
+      byId("news-status").textContent = "Awaiting first publication";
+      byId("news-items").replaceChildren(element("p","news-placeholder","Your news feed will appear here once publishing is enabled. This page cannot determine the private worker’s connection status."));
+      return;
+    }
     if(!response.ok) throw Error("Unavailable");
     const data=await response.json();
     const age=(Date.now()-Date.parse(data.updatedAt))/60000;
-    byId("news-status").textContent=`${data.status} at source · Snapshot ${data.updatedAt} · ${!Number.isFinite(age)||age>10?"STALE / delayed":"Recently published"}`;
+    byId("news-status").textContent=`${data.status} at last update · ${Number.isFinite(age) ? Math.max(0,Math.floor(age)) + " min ago" : "time unknown"}${!Number.isFinite(age)||age>10 ? " · STALE" : ""}`;
     const cards=(Array.isArray(data.items)?data.items:[]).map(item=>{
       const card=element("article","news-item");
       card.append(element("small","",`${item.event} · ${item.source}`),element("h3","",item.headline));
@@ -206,3 +213,5 @@ function tickerCell(ticker) {
  cell.append(element("button","ticker",ticker));
  return cell;
 }
+
+byId("theme-toggle").addEventListener("click", () => showChart(activeChartTicker));
