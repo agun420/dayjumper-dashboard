@@ -1,1 +1,69 @@
-{"status":"SETUP REQUIRED","updatedAt":null,"sessions":0,"selectedSignals":0,"modeledOutcomes":0,"targetSessions":100,"targetSignals":500,"lanes":[{"id":"event_continuation","name":"Event continuation","role":"Primary","outcomes":0,"expectancyR":null,"winRate":null,"drawdownR":null,"gate":"Collecting"},{"id":"day2_continuation","name":"Day-2 continuation","role":"Primary","outcomes":0,"expectancyR":null,"winRate":null,"drawdownR":null,"gate":"Collecting"},{"id":"orb_control","name":"ORB control","role":"Benchmark","outcomes":0,"expectancyR":null,"winRate":null,"drawdownR":null,"gate":"Collecting"},{"id":"exhaustion_fade","name":"Exhaustion fade","role":"Primary · short","outcomes":0,"expectancyR":null,"winRate":null,"drawdownR":null,"gate":"Collecting"}],"checks":[{"label":"09:29 candidate freeze","state":"pending"},{"label":"SIP quote envelope","state":"pending"},{"label":"Catalyst provenance","state":"pending"},{"label":"Borrow and locate snapshot","state":"pending"}]}
+{
+  "status": "COLLECTING",
+  "updatedAt": "2026-09-03T20:10:38.691546+00:00",
+  "sessions": 6,
+  "selectedSignals": 93,
+  "modeledOutcomes": 80,
+  "targetSessions": 100,
+  "targetSignals": 500,
+  "lanes": [
+    {
+      "id": "event_continuation",
+      "name": "Event continuation",
+      "role": "Primary",
+      "outcomes": 0,
+      "expectancyR": null,
+      "winRate": null,
+      "drawdownR": null,
+      "gate": "Collecting"
+    },
+    {
+      "id": "day2_continuation",
+      "name": "Day-2 continuation",
+      "role": "Primary",
+      "outcomes": 0,
+      "expectancyR": null,
+      "winRate": null,
+      "drawdownR": null,
+      "gate": "Collecting"
+    },
+    {
+      "id": "orb_control",
+      "name": "ORB control",
+      "role": "Benchmark",
+      "outcomes": 80,
+      "expectancyR": -1.3988428167521199,
+      "winRate": 3.75,
+      "drawdownR": 111.90742534016951,
+      "gate": "Collecting"
+    },
+    {
+      "id": "exhaustion_fade",
+      "name": "Exhaustion fade",
+      "role": "Primary \u00b7 short",
+      "outcomes": 0,
+      "expectancyR": null,
+      "winRate": null,
+      "drawdownR": null,
+      "gate": "Collecting"
+    }
+  ],
+  "checks": [
+    {
+      "label": "09:29 candidate freeze",
+      "state": "ready"
+    },
+    {
+      "label": "SIP quote envelope",
+      "state": "ready"
+    },
+    {
+      "label": "Catalyst provenance",
+      "state": "pending"
+    },
+    {
+      "label": "Borrow and locate snapshot",
+      "state": "ready"
+    }
+  ]
+}

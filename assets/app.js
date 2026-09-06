@@ -3,7 +3,7 @@
 const byId = (id) => document.getElementById(id);
 const number = (value, suffix = "") => {
   const parsed = Number(value);
-  return value === null || !Number.isFinite(parsed) ? "—" : `${parsed.toFixed(2)}${suffix}`;
+  return value === null || value === undefined || value === "" || !Number.isFinite(parsed) ? "—" : `${parsed.toFixed(2)}${suffix}`;
 };
 const progress = (value, target) => {
   const observed = Number(value);
@@ -56,7 +56,7 @@ function checkRow(check) {
 
 function compactInteger(value) {
   const parsed = Number(value);
-  return Number.isFinite(parsed) ? new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 }).format(parsed) : "—";
+  return value !== null && value !== undefined && value !== "" && Number.isFinite(parsed) ? new Intl.NumberFormat(undefined, { notation: "compact", maximumFractionDigits: 1 }).format(parsed) : "—";
 }
 
 function watchlistCell(label, value, className = "") {
@@ -71,7 +71,7 @@ function watchlistRow(candidate) {
   const gapClass = Number.isFinite(gap) ? (gap >= 0 ? "positive" : "negative") : "";
   row.append(
     watchlistCell("Rank", candidate.rank),
-    watchlistCell("Ticker", candidate.ticker, "ticker"),
+    tickerCell(candidate.ticker),
     watchlistCell("Price", number(candidate.price, "")),
     watchlistCell("Gap", number(candidate.gapPct, "%"), gapClass),
     watchlistCell("Rel. volume", number(candidate.rvol, "×")),
@@ -82,14 +82,18 @@ function watchlistRow(candidate) {
   return row;
 }
 
+let frozenCandidates = [];
 function renderWatchlist(data) {
   const candidates = Array.isArray(data.candidates) ? data.candidates : [];
+  frozenCandidates = candidates;
+  const today = new Intl.DateTimeFormat("en-CA", {timeZone:"America/New_York", year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  byId("snapshot-notice").textContent = data.sessionDate === today ? "Current-date publication · Frozen screen, not streaming prices" : `Historical snapshot · Session ${data.sessionDate || "unknown"} · Not today’s watchlist`;
   byId("watchlist-state").textContent = data.status === "FROZEN" ? "Frozen · research only" : "Waiting for publication";
   byId("watchlist-session").textContent = data.sessionDate || "—";
   byId("watchlist-count").textContent = Number.isFinite(Number(data.candidateCount)) ? data.candidateCount : candidates.length;
   byId("watchlist-feed").textContent = data.feed || "—";
   byId("watchlist-updated").textContent = data.updatedAt ? `Published ${new Date(data.updatedAt).toLocaleString()}` : "Not published yet";
-  byId("watchlist-rows").replaceChildren(...candidates.map(watchlistRow));
+  filterCandidates();
   byId("watchlist-table-wrap").hidden = candidates.length === 0;
   byId("watchlist-empty").hidden = candidates.length > 0;
 }
@@ -108,8 +112,8 @@ function render(data) {
   byId("signal-percent").textContent = `${signalProgress}%`;
   byId("session-bar").style.width = `${sessionProgress}%`;
   byId("signal-bar").style.width = `${signalProgress}%`;
-  byId("lanes").replaceChildren(...data.lanes.map(laneCard));
-  byId("checks").replaceChildren(...data.checks.map(checkRow));
+  byId("lanes").replaceChildren(...(Array.isArray(data.lanes) ? data.lanes : []).map(laneCard));
+  byId("checks").replaceChildren(...(Array.isArray(data.checks) ? data.checks : []).map(checkRow));
 }
 
 fetch("data/public-summary.json", { cache: "no-store" })
@@ -130,6 +134,75 @@ fetch("data/public-watchlist.json", { cache: "no-store" })
   })
   .then(renderWatchlist)
   .catch(() => {
+    byId("snapshot-notice").textContent = "Watchlist unavailable · Publication freshness cannot be verified";
     byId("watchlist-state").textContent = "Data unavailable";
     byId("watchlist-updated").textContent = "The sanitized watchlist could not be loaded";
   });
+
+function filterCandidates() {
+  const term = byId("ticker-search").value.trim().toUpperCase();
+  const sort = byId("sort-order").value;
+  const rows = frozenCandidates.filter(c => String(c.ticker).toUpperCase().includes(term));
+  rows.sort((a,b) => sort === "ticker" ? String(a.ticker).localeCompare(String(b.ticker)) : sort === "rank" ? Number(a.rank)-Number(b.rank) : (Number(b[sort]) || 0)-(Number(a[sort]) || 0));
+  byId("watchlist-rows").replaceChildren(...rows.map(watchlistRow));
+  byId("visible-count").textContent = `${rows.length} of ${frozenCandidates.length} candidates`;
+  byId("watchlist-table-wrap").hidden = rows.length === 0;
+  byId("watchlist-empty").hidden = rows.length > 0;
+  byId("watchlist-empty").textContent = term ? "No candidates match your search." : "No published candidates available.";
+}
+byId("ticker-search").addEventListener("input", filterCandidates);
+byId("sort-order").addEventListener("change", filterCandidates);
+byId("theme-toggle").addEventListener("click", () => {
+  document.documentElement.classList.toggle("dark");
+  byId("theme-toggle").setAttribute("aria-pressed", document.documentElement.classList.contains("dark"));
+});
+
+function showChart(ticker) {
+  if (!/^[A-Z][A-Z0-9.:-]{0,25}$/.test(ticker)) return;
+  const host = byId("chart");
+  host.replaceChildren();
+  const widget = element("div", "tradingview-widget-container__widget");
+  host.append(widget);
+  const script = document.createElement("script");
+  script.src = "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+  script.async = true;
+  script.textContent = JSON.stringify({symbol:ticker,interval:"15",timezone:"America/New_York",theme:document.documentElement.classList.contains("dark")?"dark":"light",style:"1",locale:"en",allow_symbol_change:true,autosize:true});
+  host.append(script);
+  byId("chart-link").href = "https://www.tradingview.com/chart/?symbol=" + encodeURIComponent(ticker);
+  byId("chart-link").textContent = ticker + " chart by TradingView ↗";
+}
+byId("watchlist-rows").addEventListener("click", e => {
+  const cell=e.target.closest(".ticker");
+  if(cell) {showChart(cell.textContent);byId("chart-panel").scrollIntoView();}
+});
+async function loadNews() {
+  try {
+    const response=await fetch("data/public-news.json",{cache:"no-store"});
+    if(!response.ok) throw Error("Unavailable");
+    const data=await response.json();
+    const age=(Date.now()-Date.parse(data.updatedAt))/60000;
+    byId("news-status").textContent=`${data.status} at source · Snapshot ${data.updatedAt} · ${!Number.isFinite(age)||age>10?"STALE / delayed":"Recently published"}`;
+    const cards=(Array.isArray(data.items)?data.items:[]).map(item=>{
+      const card=element("article","news-item");
+      card.append(element("small","",`${item.event} · ${item.source}`),element("h3","",item.headline));
+      for(const ticker of item.tickers||[]) {
+        const button=element("button","ticker-button",ticker);
+        button.addEventListener("click",()=>{showChart(ticker);byId("chart-panel").scrollIntoView();});card.append(button);
+      }
+      card.append(element("p","",`${item.prediction} · ${item.confidence} · ${item.horizon}`),element("p","section-note",item.reason),element("p","section-note",`Source: ${item.publishedAt || "unknown"} · Received: ${item.receivedAt} · Outcome: ${item.outcome}`));
+      try{const url=new URL(item.url);if(url.protocol==="https:"){const link=element("a","","Read original ↗");link.href=url.href;link.target="_blank";link.rel="noopener noreferrer";card.append(link);}}catch{}
+      return card;
+    });
+    byId("news-items").replaceChildren(...cards);
+    if(!cards.length)byId("news-items").append(element("p","section-note","No news received yet. Historical news is not backfilled."));
+  }catch{byId("news-status").textContent="News snapshot unavailable. Check worker and publication logs.";}
+}
+showChart("NASDAQ:AAPL");
+loadNews();
+setInterval(loadNews,60000);
+
+function tickerCell(ticker) {
+ const cell=watchlistCell("Ticker", "");
+ cell.append(element("button","ticker",ticker));
+ return cell;
+}
