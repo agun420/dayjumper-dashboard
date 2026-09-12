@@ -10,6 +10,10 @@ class NewsTests(unittest.TestCase):
         self.assertEqual(assess('Company expects FDA approval')['prediction'],'Uncertain')
     def test_negative(self):
         self.assertEqual(assess('FDA says drug not approved')['prediction'],'Bearish hypothesis')
+    def test_approval_not_granted_is_not_bullish(self):
+        self.assertEqual(assess('FDA approval not granted')['prediction'],'Bearish hypothesis')
+    def test_mixed_approval_and_offering_keeps_financing_risk(self):
+        self.assertEqual(assess('FDA approves treatment; company announces offering')['prediction'],'Mixed / financing risk')
     def test_merger(self):
         self.assertEqual(assess('Merger announced')['prediction'],'Mixed / role dependent')
     def test_immutable(self):
@@ -21,5 +25,6 @@ class NewsTests(unittest.TestCase):
         self.assertEqual(record['prediction'],'Bullish hypothesis')
         self.assertEqual(record['tickers'],['AAPL'])
         self.assertEqual(db.execute('SELECT COUNT(*) FROM news').fetchone()[0],1)
+        self.assertEqual(db.execute('SELECT COUNT(*) FROM news_versions').fetchone()[0],2)
 
 if __name__=='__main__':unittest.main()

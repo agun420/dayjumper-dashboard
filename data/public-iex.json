@@ -1,0 +1,156 @@
+{
+  "alerts": 16,
+  "checks": [
+    {
+      "label": "IEX single-exchange labeling",
+      "state": "ready",
+      "value": "Ready"
+    },
+    {
+      "label": "Strict post-decision entry reference",
+      "state": "ready",
+      "value": "Ready"
+    },
+    {
+      "label": "Transport and reconnect certification",
+      "state": "pending",
+      "value": "Unavailable"
+    },
+    {
+      "label": "Observed spread, depth and fills",
+      "state": "pending",
+      "value": "Not modeled"
+    },
+    {
+      "label": "Minimum sample gate",
+      "state": "pending",
+      "value": "3/20 sessions"
+    }
+  ],
+  "completeObservedSequenceAlerts": 7,
+  "coverageCertified": false,
+  "executionModeled": false,
+  "feed": "IEX",
+  "feedScope": "SINGLE EXCHANGE \u2014 NOT SIP OR NBBO",
+  "latestAlerts": [
+    {
+      "baselineGrossR": -0.149813,
+      "decisionAt": "2026-09-11T13:36:00.163074+00:00",
+      "entryReference": 333.245,
+      "evidenceQuality": "COMPLETE_IEX_BAR_SEQUENCE",
+      "initialRiskPerShare": 6.675,
+      "mfeR": 0.444195,
+      "nonfollowGrossR": -0.101124,
+      "ticker": "AAPL",
+      "trailGrossR": -0.149813
+    },
+    {
+      "baselineGrossR": -1.0,
+      "decisionAt": "2026-09-11T13:37:00.177607+00:00",
+      "entryReference": 359.805,
+      "evidenceQuality": "SPARSE_IEX_OBSERVATIONS",
+      "initialRiskPerShare": 1.815,
+      "mfeR": 0.107438,
+      "nonfollowGrossR": -1.0,
+      "ticker": "JPM",
+      "trailGrossR": -1.0
+    },
+    {
+      "baselineGrossR": -1.0,
+      "decisionAt": "2026-09-11T13:40:00.186969+00:00",
+      "entryReference": 495.755,
+      "evidenceQuality": "SPARSE_IEX_OBSERVATIONS",
+      "initialRiskPerShare": 2.28,
+      "mfeR": 1.225877,
+      "nonfollowGrossR": -1.0,
+      "ticker": "MSFT",
+      "trailGrossR": 0.725877
+    },
+    {
+      "baselineGrossR": -1.0,
+      "decisionAt": "2026-09-11T13:44:00.022245+00:00",
+      "entryReference": 661.17,
+      "evidenceQuality": "SPARSE_IEX_OBSERVATIONS",
+      "initialRiskPerShare": 12.36,
+      "mfeR": 0.23301,
+      "nonfollowGrossR": -0.623786,
+      "ticker": "META",
+      "trailGrossR": -1.0
+    },
+    {
+      "baselineGrossR": 0.592843,
+      "decisionAt": "2026-09-11T13:46:00.018236+00:00",
+      "entryReference": 511.725,
+      "evidenceQuality": "SPARSE_IEX_OBSERVATIONS",
+      "initialRiskPerShare": 7.405,
+      "mfeR": 1.222147,
+      "nonfollowGrossR": 0.592843,
+      "ticker": "AMD",
+      "trailGrossR": 0.617488
+    },
+    {
+      "baselineGrossR": -1.0,
+      "decisionAt": "2026-09-11T14:00:00.184629+00:00",
+      "entryReference": 765.87,
+      "evidenceQuality": "COMPLETE_IEX_BAR_SEQUENCE",
+      "initialRiskPerShare": 1.63,
+      "mfeR": 0.273006,
+      "nonfollowGrossR": -0.306748,
+      "ticker": "SPY",
+      "trailGrossR": -1.0
+    },
+    {
+      "baselineGrossR": -0.385036,
+      "decisionAt": "2026-09-11T16:36:00.193642+00:00",
+      "entryReference": 340.53,
+      "evidenceQuality": "SPARSE_IEX_OBSERVATIONS",
+      "initialRiskPerShare": 5.48,
+      "mfeR": 0.160584,
+      "nonfollowGrossR": -0.385036,
+      "ticker": "GOOGL",
+      "trailGrossR": -0.385036
+    }
+  ],
+  "latestSessionDate": "2026-09-11",
+  "paperOnly": true,
+  "policies": [
+    {
+      "gate": "Not promoted",
+      "grossMeanR": -0.168619,
+      "id": "baseline_2r_eod",
+      "name": "2R + session close",
+      "netMeanR10Bps": -1.006673,
+      "outcomes": 7,
+      "positiveRate": 28.57,
+      "role": "Frozen baseline"
+    },
+    {
+      "gate": "Not promoted",
+      "grossMeanR": -0.283811,
+      "id": "trail_1r_half_r",
+      "name": "Causal 1R trail",
+      "netMeanR10Bps": -1.12175,
+      "outcomes": 7,
+      "positiveRate": 28.57,
+      "role": "Challenger"
+    },
+    {
+      "gate": "Not promoted",
+      "grossMeanR": -0.304578,
+      "id": "nonfollow_30m",
+      "name": "30-minute non-follow",
+      "netMeanR10Bps": -1.142496,
+      "outcomes": 7,
+      "positiveRate": 14.29,
+      "role": "Challenger"
+    }
+  ],
+  "promotionStatus": "INSUFFICIENT_EVIDENCE",
+  "schema": "dayjumper_public_iex_v1",
+  "sessions": 3,
+  "status": "PROVISIONAL IEX RESEARCH",
+  "targetAlerts": 100,
+  "targetSessions": 20,
+  "universe": "Fixed configured list",
+  "updatedAt": "2026-09-12T18:40:46.806839+00:00"
+}

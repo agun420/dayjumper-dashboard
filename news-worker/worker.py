@@ -1,5 +1,6 @@
 """News-only stream. No orders. Immutable first-seen rule-based assessments."""
 import asyncio
+import hashlib
 import json
 import os
 import re
@@ -15,23 +16,38 @@ def now():
 
 def assess(headline):
     h = headline.lower()
-    uncertain = bool(re.search(r'\b(may|could|rumou?r|seeks|expects|potential|awaits)\b', h))
-    negative = bool(re.search(r'\b(rejects?|rejected|denied|fails?|failed|not approved|complete response letter|terminated)\b', h))
-    if 'fda' in h:
-        event = 'FDA / regulatory'
-        bias = 'Bearish hypothesis' if negative else 'Bullish hypothesis' if re.search(r'\b(approves?|approved|approval)\b', h) and not uncertain else 'Uncertain'
-    elif re.search(r'\b(merger|acquisition|acquire|buyout|takeover)\b', h):
-        event, bias = 'M&A', 'Mixed / role dependent'
-    elif re.search(r'\b(offering|dilution|stock sale)\b', h):
-        event, bias = 'Financing', 'Bearish hypothesis'
-    elif re.search(r'\b(earnings|guidance|revenue)\b', h):
-        event, bias = 'Earnings / guidance', 'Uncertain'
+    uncertain = bool(re.search(r'\b(may|could|rumou?r|seeks|expects|potential|awaits|pending)\b', h))
+    fda = 'fda' in h or bool(re.search(r'\b(regulatory|pdufa)\b', h))
+    fda_negative = bool(re.search(r'\b(rejects?|rejected|denied|fails?|failed|not (?:yet )?(?:approved|granted)|complete response letter|withdrawn?|terminated)\b', h))
+    fda_positive = bool(re.search(r'\b(approves?|approved|approval granted|clearance granted)\b', h))
+    financing = bool(re.search(r'\b(offering|dilution|stock sale|at-the-market|registered direct)\b', h))
+    financing_cancelled = bool(re.search(r'\b(cancels?|cancelled|withdraws?|withdrawn|terminates?|terminated)\b.{0,40}\b(offering|stock sale|at-the-market)\b', h))
+    merger = bool(re.search(r'\b(merger|acquisition|acquire|buyout|takeover)\b', h))
+    earnings = bool(re.search(r'\b(earnings|guidance|revenue)\b', h))
+    events = []
+    biases = []
+    if fda:
+        events.append('FDA / regulatory')
+        biases.append('Bearish hypothesis' if fda_negative else 'Bullish hypothesis' if fda_positive and not uncertain else 'Uncertain')
+    if financing:
+        events.append('Financing')
+        biases.append('Uncertain' if financing_cancelled else 'Bearish hypothesis')
+    if merger:
+        events.append('M&A')
+        biases.append('Mixed / role dependent')
+    if earnings:
+        events.append('Earnings / guidance')
+        biases.append('Uncertain')
+    event = ' + '.join(events) if events else 'Other news'
+    directional = {bias for bias in biases if bias in {'Bullish hypothesis', 'Bearish hypothesis'}}
+    if len(directional) > 1 or (financing and fda_positive and not financing_cancelled):
+        bias = 'Mixed / financing risk'
+    elif biases:
+        bias = biases[0] if len(set(biases)) == 1 else 'Uncertain'
     else:
-        event, bias = 'Other news', 'Uncertain'
-    if uncertain:
         bias = 'Uncertain'
     return {'event':event, 'sentiment':bias, 'prediction':bias,
-            'method':'headline_rules_v1', 'confidence':'Uncalibrated',
+            'method':'headline_rules_v2', 'confidence':'Uncalibrated',
             'horizon':'Next regular trading session',
             'reason':'Headline-only assessment. Confirm event details, ticker role, timing and price reaction.',
             'outcome':'Not evaluated'}
@@ -45,7 +61,10 @@ def store(db, event):
               'source':str(event.get('source','Alpaca news'))[:100],
               'url':str(event.get('url','')), 'publishedAt':event.get('created_at'),
               'receivedAt':now(), **assess(headline)}
-    # Never revise an earlier prediction using a later edited headline.
+    db.execute('CREATE TABLE IF NOT EXISTS news_versions (id TEXT, version_hash TEXT, received TEXT, payload TEXT, PRIMARY KEY (id, version_hash))')
+    version_hash = hashlib.sha256(json.dumps(event, sort_keys=True, separators=(',', ':'), default=str).encode()).hexdigest()
+    db.execute('INSERT OR IGNORE INTO news_versions VALUES (?, ?, ?, ?)', (record['id'],version_hash,record['receivedAt'],json.dumps(record)))
+    # Preserve the first-seen assessment while retaining edited versions for audit.
     db.execute('INSERT OR IGNORE INTO news VALUES (?, ?, ?)', (record['id'],record['receivedAt'],json.dumps(record)))
     db.commit()
 
@@ -62,6 +81,7 @@ async def run():
     ROOT.mkdir(parents=True,exist_ok=True)
     db = sqlite3.connect(ROOT/'news.sqlite3')
     db.execute('CREATE TABLE IF NOT EXISTS news (id TEXT PRIMARY KEY, received TEXT, payload TEXT)')
+    db.execute('CREATE TABLE IF NOT EXISTS news_versions (id TEXT, version_hash TEXT, received TEXT, payload TEXT, PRIMARY KEY (id, version_hash))')
     while True:
         try:
             export(db,'CONNECTING')
@@ -78,6 +98,8 @@ async def run():
                     while True:
                         batch = json.loads(await ws.recv())
                         if any(i.get('T') == 'error' for i in batch): raise RuntimeError('Subscription rejected')
+                        for event in batch:
+                            store(db,event)
                         if any(i.get('T') == 'subscription' and '*' in i.get('news',[]) for i in batch): break
                 export(db,'CONNECTED')
                 while True:
