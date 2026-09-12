@@ -104,6 +104,7 @@ function render(data) {
   byId("status").textContent = freshness.stale ? `STALE — ${data.status}` : data.status;
   byId("updated").textContent = data.updatedAt ? `Published ${new Date(data.updatedAt).toLocaleString()}` : "No current IEX publication loaded";
   byId("snapshot-notice").textContent = `${freshness.stale ? `STALE (${freshness.label}) · ` : ""}${data.feedScope} · ${data.coverageCertified ? "Coverage certified" : "Coverage not certified"} · ${data.executionModeled ? "Execution modeled" : "Execution not modeled"}`;
+
   byId("sessions").textContent = data.sessions;
   byId("signals").textContent = data.alerts;
   byId("complete-alerts").textContent = data.completeObservedSequenceAlerts;
@@ -136,6 +137,7 @@ fetch("data/public-iex.json", {cache:"no-store"})
 }
 loadPublication();
 setInterval(loadPublication, 300000);
+
 byId("ticker-search").addEventListener("input", filterAlerts);
 byId("sort-order").addEventListener("change", filterAlerts);
 byId("theme-toggle").addEventListener("click", () => {

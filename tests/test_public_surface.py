@@ -48,6 +48,7 @@ class PublicSurfaceTests(unittest.TestCase):
         self.assertIn("STALE", script)
         self.assertIn("setInterval(loadPublication, 300000)", script)
 
+
     def test_html_does_not_present_stale_sip_metrics(self):
         html = (ROOT / "index.html").read_text()
         for stale in ("Modeled outcomes", "09:29 ET frozen screen", "Catalyst news", "Four-lane research router"):
