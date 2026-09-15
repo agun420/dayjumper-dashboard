@@ -1,5 +1,5 @@
 {
-  "alerts": 19,
+  "alerts": 22,
   "checks": [
     {
       "label": "IEX single-exchange labeling",
@@ -24,89 +24,89 @@
     {
       "label": "Minimum sample gate",
       "state": "pending",
-      "value": "4/20 sessions"
+      "value": "5/20 sessions"
     }
   ],
-  "completeObservedSequenceAlerts": 9,
+  "completeObservedSequenceAlerts": 11,
   "coverageCertified": false,
   "executionModeled": false,
   "feed": "IEX",
   "feedScope": "SINGLE EXCHANGE \u2014 NOT SIP OR NBBO",
   "latestAlerts": [
     {
-      "baselineGrossR": 0.408816,
-      "decisionAt": "2026-09-14T13:40:00.190750+00:00",
-      "entryReference": 660.91,
+      "baselineGrossR": -1.0,
+      "decisionAt": "2026-09-15T13:38:00.200496+00:00",
+      "entryReference": 504.83,
+      "evidenceQuality": "COMPLETE_IEX_BAR_SEQUENCE",
+      "initialRiskPerShare": 5.63,
+      "mfeR": 0.168739,
+      "nonfollowGrossR": -1.0,
+      "ticker": "MSFT",
+      "trailGrossR": -1.0
+    },
+    {
+      "baselineGrossR": -0.327974,
+      "decisionAt": "2026-09-15T13:51:00.169817+00:00",
+      "entryReference": 507.31,
       "evidenceQuality": "SPARSE_IEX_OBSERVATIONS",
-      "initialRiskPerShare": 11.57,
-      "mfeR": 0.659032,
-      "nonfollowGrossR": -0.039326,
-      "ticker": "META",
-      "trailGrossR": 0.408816
+      "initialRiskPerShare": 9.33,
+      "mfeR": 0.660236,
+      "nonfollowGrossR": -0.327974,
+      "ticker": "AMD",
+      "trailGrossR": -0.327974
     },
     {
-      "baselineGrossR": -0.578748,
-      "decisionAt": "2026-09-14T13:56:00.181349+00:00",
-      "entryReference": 334.525,
+      "baselineGrossR": 0.263499,
+      "decisionAt": "2026-09-15T13:59:00.171876+00:00",
+      "entryReference": 330.725,
       "evidenceQuality": "COMPLETE_IEX_BAR_SEQUENCE",
-      "initialRiskPerShare": 2.635,
-      "mfeR": 0.370019,
-      "nonfollowGrossR": -0.631879,
+      "initialRiskPerShare": 2.315,
+      "mfeR": 0.455724,
+      "nonfollowGrossR": -0.507559,
       "ticker": "AAPL",
-      "trailGrossR": -0.578748
-    },
-    {
-      "baselineGrossR": -1.015504,
-      "decisionAt": "2026-09-14T15:07:00.201348+00:00",
-      "entryReference": 759.265,
-      "evidenceQuality": "COMPLETE_IEX_BAR_SEQUENCE",
-      "initialRiskPerShare": 0.645,
-      "mfeR": 6.534884,
-      "nonfollowGrossR": -1.015504,
-      "ticker": "SPY",
-      "trailGrossR": -1.015504
+      "trailGrossR": 0.263499
     }
   ],
-  "latestSessionDate": "2026-09-14",
+  "latestSessionDate": "2026-09-15",
   "paperOnly": true,
   "policies": [
     {
       "gate": "Not promoted",
-      "grossMeanR": -0.308287,
+      "grossMeanR": -0.31919,
       "id": "baseline_2r_eod",
       "name": "2R + session close",
-      "netMeanR10Bps": -1.249732,
-      "outcomes": 9,
-      "positiveRate": 22.22,
+      "netMeanR10Bps": -1.131674,
+      "outcomes": 11,
+      "positiveRate": 27.27,
       "role": "Frozen baseline"
     },
     {
       "gate": "Not promoted",
-      "grossMeanR": -0.397881,
+      "grossMeanR": -0.392493,
       "id": "trail_1r_half_r",
       "name": "Causal 1R trail",
-      "netMeanR10Bps": -1.339236,
-      "outcomes": 9,
-      "positiveRate": 22.22,
+      "netMeanR10Bps": -1.204904,
+      "outcomes": 11,
+      "positiveRate": 27.27,
       "role": "Challenger"
     },
     {
       "gate": "Not promoted",
-      "grossMeanR": -0.419937,
+      "grossMeanR": -0.480635,
       "id": "nonfollow_30m",
       "name": "30-minute non-follow",
-      "netMeanR10Bps": -1.36127,
-      "outcomes": 9,
-      "positiveRate": 11.11,
+      "netMeanR10Bps": -1.292958,
+      "outcomes": 11,
+      "positiveRate": 9.09,
       "role": "Challenger"
     }
   ],
   "promotionStatus": "INSUFFICIENT_EVIDENCE",
   "schema": "dayjumper_public_iex_v1",
-  "sessions": 4,
+  "sessions": 5,
   "status": "PROVISIONAL IEX RESEARCH",
   "targetAlerts": 100,
   "targetSessions": 20,
   "universe": "Fixed configured list",
-  "updatedAt": "2026-09-14T22:50:08.917343+00:00"
+  "updatedAt": "2026-09-15T20:05:01.807891+00:00"
 }
