@@ -226,7 +226,7 @@ function render(data) {
   renderMyPicks(data.myPicks, freshness, data.updatedAt);
   renderEvidenceDiagnostics(data.evidenceDiagnostics, freshness);
   const sessionPct = progress(data.sessions, data.targetSessions);
-  const alertPct = progress(data.alerts, data.targetAlerts);
+  const alertPct = progress(data.completeObservedSequenceAlerts, data.targetAlerts);
   byId("session-target").textContent = `Gate ${data.targetSessions}`;
   byId("signal-target").textContent = `Gate ${data.targetAlerts}`;
   byId("session-percent").textContent = `${sessionPct}%`;

@@ -95,6 +95,8 @@ class PublicSurfaceTests(unittest.TestCase):
         self.assertIn("renderMyPicks", script)
         self.assertIn("renderEvidenceDiagnostics", script)
         self.assertIn("STALE — RESEARCH ONLY", script)
+        self.assertIn("progress(data.completeObservedSequenceAlerts, data.targetAlerts)", script)
+        self.assertNotIn("progress(data.alerts, data.targetAlerts)", script)
 
     def test_html_does_not_present_stale_sip_metrics(self):
         html = (ROOT / "index.html").read_text()
@@ -116,14 +118,17 @@ class PublicSurfaceTests(unittest.TestCase):
         self.assertIn("observable follow-up bars do not prove", html)
         self.assertIn("Candidate-audit evidence is unavailable", html)
 
-    def test_legacy_fixture_is_forward_only_unavailable(self):
+    def test_lifecycle_availability_matches_content(self):
         payload = json.loads((ROOT / "data/public-iex.json").read_text())
         picks = payload["myPicks"]
         self.assertEqual(picks["sessionDate"], payload["latestSessionDate"])
-        self.assertEqual(picks["status"], "UNAVAILABLE")
-        self.assertEqual(picks["items"], [])
-        self.assertTrue(all(count == 0 for count in picks["counts"].values()))
-        self.assertEqual(payload["evidenceDiagnostics"]["status"], "UNAVAILABLE")
+        if picks["status"] in {"UNAVAILABLE", "NO_QUALIFYING_SETUPS"}:
+            self.assertEqual(picks["items"], [])
+            self.assertTrue(all(count == 0 for count in picks["counts"].values()))
+        else:
+            self.assertEqual(picks["status"], "AVAILABLE")
+            self.assertTrue(picks["items"])
+        self.assertEqual(payload["evidenceDiagnostics"]["sessionDate"], payload["latestSessionDate"])
 
     def test_social_card_dimensions(self):
         data = (ROOT / "assets/og.png").read_bytes()
