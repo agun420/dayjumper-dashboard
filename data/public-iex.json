@@ -29,6 +29,41 @@
   ],
   "completeObservedSequenceAlerts": 11,
   "coverageCertified": false,
+  "evidenceDiagnostics": {
+    "availabilityLag": {
+      "maxMs": null,
+      "minMs": null,
+      "p50Ms": null,
+      "p95Ms": null,
+      "samples": 0,
+      "status": "UNAVAILABLE"
+    },
+    "missedOpportunityObservability": {
+      "interpretation": "No post-decision candidate audit is available.",
+      "observable": 0,
+      "status": "UNAVAILABLE",
+      "unavailable": 0
+    },
+    "regimes": {
+      "buckets": [],
+      "status": "UNAVAILABLE"
+    },
+    "rejectedCandidates": {
+      "byReason": [],
+      "status": "UNAVAILABLE",
+      "total": 0
+    },
+    "sameTimeParticipation": {
+      "available": 0,
+      "ratioP50": null,
+      "ratioP95": null,
+      "ratioSamples": 0,
+      "status": "UNAVAILABLE",
+      "unavailable": 0
+    },
+    "sessionDate": "2026-09-15",
+    "status": "UNAVAILABLE"
+  },
   "executionModeled": false,
   "feed": "IEX",
   "feedScope": "SINGLE EXCHANGE \u2014 NOT SIP OR NBBO",
@@ -68,6 +103,20 @@
     }
   ],
   "latestSessionDate": "2026-09-15",
+  "myPicks": {
+    "counts": {
+      "ARMED": 0,
+      "EXPIRED": 0,
+      "INVALIDATED": 0,
+      "TRIGGERED": 0,
+      "WATCH": 0
+    },
+    "items": [],
+    "lifecycleVersion": "ORB5_SHADOW_V1",
+    "sessionDate": "2026-09-15",
+    "shadowOnly": true,
+    "status": "UNAVAILABLE"
+  },
   "paperOnly": true,
   "policies": [
     {
@@ -102,11 +151,11 @@
     }
   ],
   "promotionStatus": "INSUFFICIENT_EVIDENCE",
-  "schema": "dayjumper_public_iex_v1",
+  "schema": "dayjumper_public_iex_v3",
   "sessions": 5,
   "status": "PROVISIONAL IEX RESEARCH",
   "targetAlerts": 100,
   "targetSessions": 20,
   "universe": "Fixed configured list",
-  "updatedAt": "2026-09-15T20:05:01.807891+00:00"
+  "updatedAt": "2026-09-16T01:44:13.512981+00:00"
 }
