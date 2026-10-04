@@ -30,6 +30,11 @@
       "label": "Interrupted capture 2026-09-30",
       "state": "pending",
       "value": "Excluded from outcomes and sample counts; paper-only coverage gap"
+    },
+    {
+      "label": "Cost/time shadow (10 bps per side)",
+      "state": "pending",
+      "value": "PASS 5 / BLOCK 1 / UNKNOWN 0; execution unknown"
     }
   ],
   "completeObservedSequenceAlerts": 28,
@@ -420,5 +425,5 @@
   "targetAlerts": 100,
   "targetSessions": 20,
   "universe": "Fixed configured list",
-  "updatedAt": "2026-10-02T20:09:09.196252+00:00"
+  "updatedAt": "2026-10-04T18:26:45.088762+00:00"
 }

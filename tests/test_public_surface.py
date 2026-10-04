@@ -48,7 +48,7 @@ class PublicSurfaceTests(unittest.TestCase):
         picks = payload["myPicks"]
         self.assertEqual(set(picks), MY_PICKS_FIELDS)
         self.assertIs(picks["shadowOnly"], True)
-        self.assertEqual(picks["lifecycleVersion"], "ORB5_SHADOW_V1")
+        self.assertIn(picks["lifecycleVersion"], {"ORB5_SHADOW_V1", "ORB5_SHADOW_V2_INTEGRITY"})
         self.assertIn(picks["status"], {"AVAILABLE", "NO_QUALIFYING_SETUPS", "UNAVAILABLE"})
         self.assertEqual(set(picks["counts"]), MY_PICK_COUNT_FIELDS)
         self.assertTrue(all(type(value) is int and value >= 0 for value in picks["counts"].values()))
@@ -56,6 +56,7 @@ class PublicSurfaceTests(unittest.TestCase):
         seen = set()
         for pick in picks["items"]:
             self.assertEqual(set(pick), MY_PICK_ITEM_FIELDS)
+            self.assertEqual(pick["setupType"], picks["lifecycleVersion"])
             self.assertIn(pick["state"], MY_PICK_COUNT_FIELDS)
             self.assertRegex(pick["ticker"], r"^[A-Z][A-Z0-9.]{0,9}$")
             key = (pick["ticker"], pick["setupType"])
