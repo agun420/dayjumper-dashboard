@@ -1,5 +1,5 @@
 {
-  "alerts": 122,
+  "alerts": 125,
   "checks": [
     {
       "label": "IEX single-exchange labeling",
@@ -24,7 +24,7 @@
     {
       "label": "Minimum sample gate",
       "state": "pending",
-      "value": "51/20 sessions"
+      "value": "52/20 sessions"
     },
     {
       "label": "Interrupted capture 2026-09-30",
@@ -34,7 +34,7 @@
     {
       "label": "Integrity decisions (symbol observations)",
       "state": "pending",
-      "value": "PASS 0 / BLOCK 756 / UNKNOWN 3109"
+      "value": "PASS 0 / BLOCK 380 / UNKNOWN 3506"
     },
     {
       "label": "Integrity veto before ARMED",
@@ -54,37 +54,37 @@
     {
       "label": "Cost/time shadow (10 bps per side)",
       "state": "pending",
-      "value": "PASS 0 / BLOCK 0 / UNKNOWN 0; execution unknown"
+      "value": "PASS 2 / BLOCK 1 / UNKNOWN 0; execution unknown"
     }
   ],
   "completeObservedSequenceAlerts": 55,
   "coverageCertified": false,
   "evidenceDiagnostics": {
     "availabilityLag": {
-      "maxMs": 60634.16,
-      "minMs": 60009.597,
-      "p50Ms": 60146.091,
-      "p95Ms": 60264.614,
-      "samples": 3039,
+      "maxMs": 60791.019,
+      "minMs": 60008.551,
+      "p50Ms": 60142.327,
+      "p95Ms": 60250.803,
+      "samples": 2382,
       "status": "AVAILABLE"
     },
     "missedOpportunityObservability": {
       "interpretation": "Follow-up IEX bars were observable; this does not classify a missed trade.",
-      "observable": 2763,
+      "observable": 2202,
       "status": "AVAILABLE",
-      "unavailable": 276
+      "unavailable": 180
     },
     "regimes": {
       "buckets": [
         {
           "name": "MIDDAY",
-          "records": 2555,
-          "rejected": 7647
+          "records": 2011,
+          "rejected": 5844
         },
         {
           "name": "OPENING",
-          "records": 484,
-          "rejected": 1492
+          "records": 371,
+          "rejected": 1162
         }
       ],
       "status": "AVAILABLE"
@@ -92,145 +92,161 @@
     "rejectedCandidates": {
       "byReason": [
         {
-          "count": 1506,
+          "count": 1238,
           "reason": "COMPRESSION_FAIL"
         },
         {
-          "count": 50,
+          "count": 35,
           "reason": "COMPRESSION_FEATURE_HISTORY_UNAVAILABLE"
         },
         {
-          "count": 2089,
+          "count": 1635,
           "reason": "PARTICIPATIONACCELERATION_FAIL"
         },
         {
-          "count": 50,
+          "count": 35,
           "reason": "PARTICIPATIONACCELERATION_FEATURE_HISTORY_UNAVAILABLE"
         },
         {
-          "count": 2400,
+          "count": 1688,
           "reason": "PRICERESILIENCE_FAIL"
         },
         {
-          "count": 50,
+          "count": 35,
           "reason": "PRICERESILIENCE_FEATURE_HISTORY_UNAVAILABLE"
         },
         {
-          "count": 2944,
+          "count": 2305,
           "reason": "RESISTANCEPROXIMITY_FAIL"
         },
         {
-          "count": 50,
+          "count": 35,
           "reason": "RESISTANCEPROXIMITY_FEATURE_HISTORY_UNAVAILABLE"
         }
       ],
       "status": "AVAILABLE",
-      "total": 9139
+      "total": 7006
     },
     "sameTimeParticipation": {
-      "available": 3032,
-      "ratioP50": 1.319851,
-      "ratioP95": 5.351321,
-      "ratioSamples": 3032,
+      "available": 2382,
+      "ratioP50": 1.397621,
+      "ratioP95": 5.673192,
+      "ratioSamples": 2382,
       "status": "AVAILABLE",
-      "unavailable": 7
+      "unavailable": 0
     },
-    "sessionDate": "2026-11-19",
+    "sessionDate": "2026-11-20",
     "status": "AVAILABLE"
   },
   "executionModeled": false,
   "feed": "IEX",
   "feedScope": "SINGLE EXCHANGE \u2014 NOT SIP OR NBBO",
-  "latestAlerts": [],
-  "latestSessionDate": "2026-11-19",
+  "latestAlerts": [
+    {
+      "baselineGrossR": -1.0,
+      "decisionAt": "2026-11-20T14:36:00.171572+00:00",
+      "entryReference": 498.355,
+      "evidenceQuality": "SPARSE_IEX_OBSERVATIONS",
+      "initialRiskPerShare": 7.335,
+      "mfeR": 0.73347,
+      "nonfollowGrossR": -1.0,
+      "ticker": "MSFT",
+      "trailGrossR": -1.0
+    },
+    {
+      "baselineGrossR": 2.0,
+      "decisionAt": "2026-11-20T14:37:00.040164+00:00",
+      "entryReference": 713.89,
+      "evidenceQuality": "SPARSE_IEX_OBSERVATIONS",
+      "initialRiskPerShare": 2.14,
+      "mfeR": 2.042056,
+      "nonfollowGrossR": 2.0,
+      "ticker": "SPY",
+      "trailGrossR": 0.897196
+    },
+    {
+      "baselineGrossR": -1.003676,
+      "decisionAt": "2026-11-20T16:07:00.173140+00:00",
+      "entryReference": 253.89,
+      "evidenceQuality": "SPARSE_IEX_OBSERVATIONS",
+      "initialRiskPerShare": 2.72,
+      "mfeR": 0.503676,
+      "nonfollowGrossR": -0.533088,
+      "ticker": "AMZN",
+      "trailGrossR": -1.003676
+    }
+  ],
+  "latestSessionDate": "2026-11-20",
   "myPicks": {
     "counts": {
       "ARMED": 0,
       "EXPIRED": 0,
-      "INVALIDATED": 9,
-      "TRIGGERED": 0,
+      "INVALIDATED": 4,
+      "TRIGGERED": 3,
       "WATCH": 0
     },
     "items": [
       {
-        "compressionScore": 0.151838,
-        "distanceToTriggerPct": 1.516374,
+        "compressionScore": 0.087751,
+        "distanceToTriggerPct": 3.049052,
         "evidenceQuality": "UNCERTIFIED_IEX_SEQUENCE",
-        "firstObservedAt": "2026-11-19T14:40:00.167563+00:00",
-        "invalidationReference": 537.285,
-        "participationScore": 0.855691,
+        "firstObservedAt": "2026-11-20T14:55:00.169182+00:00",
+        "invalidationReference": 458.0,
+        "participationScore": 0.353359,
         "reasonCodes": [
           "NEAR_OPENING_RESISTANCE",
           "CLOSE_BELOW_OPENING_LOW"
         ],
-        "resilienceScore": 0.031927,
+        "resilienceScore": 0.11022,
         "setupType": "ORB5_SHADOW_V2_INTEGRITY",
         "state": "INVALIDATED",
-        "stateChangedAt": "2026-11-19T15:13:00.135897+00:00",
+        "stateChangedAt": "2026-11-20T15:19:00.134373+00:00",
         "ticker": "AMD",
-        "triggerReference": 545.38
+        "triggerReference": 471.95
       },
       {
-        "compressionScore": 0.0,
+        "compressionScore": 0.371517,
         "distanceToTriggerPct": 0.0,
         "evidenceQuality": "UNCERTIFIED_IEX_SEQUENCE",
-        "firstObservedAt": "2026-11-19T14:38:00.069828+00:00",
-        "invalidationReference": null,
-        "participationScore": 0.0,
+        "firstObservedAt": "2026-11-20T16:03:00.120577+00:00",
+        "invalidationReference": 251.17,
+        "participationScore": 0.830136,
         "reasonCodes": [
           "NEAR_OPENING_RESISTANCE",
-          "CLOSE_BELOW_OPENING_LOW"
+          "BASELINE_ORB5_UNARMED"
         ],
-        "resilienceScore": 0.0,
+        "resilienceScore": 0.802956,
         "setupType": "ORB5_SHADOW_V2_INTEGRITY",
-        "state": "INVALIDATED",
-        "stateChangedAt": "2026-11-19T14:39:00.151896+00:00",
+        "state": "TRIGGERED",
+        "stateChangedAt": "2026-11-20T16:07:00.173140+00:00",
         "ticker": "AMZN",
-        "triggerReference": null
+        "triggerReference": 253.56
       },
       {
-        "compressionScore": 0.445578,
-        "distanceToTriggerPct": 0.892177,
+        "compressionScore": 0.0,
+        "distanceToTriggerPct": 1.353748,
         "evidenceQuality": "UNCERTIFIED_IEX_SEQUENCE",
-        "firstObservedAt": "2026-11-19T14:49:00.127331+00:00",
-        "invalidationReference": 293.41,
-        "participationScore": 0.293795,
+        "firstObservedAt": "2026-11-20T16:03:00.133878+00:00",
+        "invalidationReference": 272.905,
+        "participationScore": 0.420014,
         "reasonCodes": [
           "NEAR_OPENING_RESISTANCE",
           "CLOSE_BELOW_OPENING_LOW"
         ],
-        "resilienceScore": 0.0,
+        "resilienceScore": 0.022901,
         "setupType": "ORB5_SHADOW_V2_INTEGRITY",
         "state": "INVALIDATED",
-        "stateChangedAt": "2026-11-19T14:55:00.228890+00:00",
+        "stateChangedAt": "2026-11-20T17:39:00.130303+00:00",
         "ticker": "GOOGL",
-        "triggerReference": 295.345
+        "triggerReference": 276.27
       },
       {
-        "compressionScore": 0.0,
-        "distanceToTriggerPct": 0.0,
-        "evidenceQuality": "DEGRADED_IEX_SEQUENCE",
-        "firstObservedAt": "2026-11-19T14:38:00.072413+00:00",
-        "invalidationReference": null,
-        "participationScore": 0.0,
-        "reasonCodes": [
-          "NEAR_OPENING_RESISTANCE",
-          "NONCONTIGUOUS_IEX_BARS"
-        ],
-        "resilienceScore": 0.0,
-        "setupType": "ORB5_SHADOW_V2_INTEGRITY",
-        "state": "INVALIDATED",
-        "stateChangedAt": "2026-11-19T14:46:00.187323+00:00",
-        "ticker": "JPM",
-        "triggerReference": null
-      },
-      {
-        "compressionScore": 0.0,
-        "distanceToTriggerPct": 0.0,
+        "compressionScore": 0.039384,
+        "distanceToTriggerPct": 1.648804,
         "evidenceQuality": "UNCERTIFIED_IEX_SEQUENCE",
-        "firstObservedAt": "2026-11-19T14:38:00.060323+00:00",
-        "invalidationReference": null,
-        "participationScore": 0.0,
+        "firstObservedAt": "2026-11-20T14:38:00.105471+00:00",
+        "invalidationReference": 573.76,
+        "participationScore": 0.333234,
         "reasonCodes": [
           "NEAR_OPENING_RESISTANCE",
           "CLOSE_BELOW_OPENING_LOW"
@@ -238,85 +254,65 @@
         "resilienceScore": 0.0,
         "setupType": "ORB5_SHADOW_V2_INTEGRITY",
         "state": "INVALIDATED",
-        "stateChangedAt": "2026-11-19T14:40:00.191118+00:00",
+        "stateChangedAt": "2026-11-20T16:02:00.027050+00:00",
         "ticker": "META",
-        "triggerReference": null
-      },
-      {
-        "compressionScore": 0.0,
-        "distanceToTriggerPct": 0.760867,
-        "evidenceQuality": "UNCERTIFIED_IEX_SEQUENCE",
-        "firstObservedAt": "2026-11-19T14:38:00.059415+00:00",
-        "invalidationReference": 518.81,
-        "participationScore": 0.19568,
-        "reasonCodes": [
-          "NEAR_OPENING_RESISTANCE",
-          "CLOSE_BELOW_OPENING_LOW"
-        ],
-        "resilienceScore": 0.011261,
-        "setupType": "ORB5_SHADOW_V2_INTEGRITY",
-        "state": "INVALIDATED",
-        "stateChangedAt": "2026-11-19T15:21:00.117028+00:00",
-        "ticker": "MSFT",
-        "triggerReference": 522.43
-      },
-      {
-        "compressionScore": 0.485075,
-        "distanceToTriggerPct": 3.054284,
-        "evidenceQuality": "UNCERTIFIED_IEX_SEQUENCE",
-        "firstObservedAt": "2026-11-19T14:38:00.069505+00:00",
-        "invalidationReference": 152.6,
-        "participationScore": 0.44908,
-        "reasonCodes": [
-          "NEAR_OPENING_RESISTANCE",
-          "CLOSE_BELOW_OPENING_LOW"
-        ],
-        "resilienceScore": 0.166667,
-        "setupType": "ORB5_SHADOW_V2_INTEGRITY",
-        "state": "INVALIDATED",
-        "stateChangedAt": "2026-11-19T15:34:00.162223+00:00",
-        "ticker": "NVDA",
-        "triggerReference": 157.32
+        "triggerReference": 583.15
       },
       {
         "compressionScore": 0.0,
         "distanceToTriggerPct": 0.0,
         "evidenceQuality": "UNCERTIFIED_IEX_SEQUENCE",
-        "firstObservedAt": "2026-11-19T14:38:00.071685+00:00",
+        "firstObservedAt": "2026-11-20T14:36:00.171572+00:00",
         "invalidationReference": null,
         "participationScore": 0.0,
         "reasonCodes": [
-          "NEAR_OPENING_RESISTANCE",
-          "CLOSE_BELOW_OPENING_LOW"
+          "BASELINE_ORB5_UNARMED"
         ],
         "resilienceScore": 0.0,
         "setupType": "ORB5_SHADOW_V2_INTEGRITY",
-        "state": "INVALIDATED",
-        "stateChangedAt": "2026-11-19T14:39:00.153349+00:00",
+        "state": "TRIGGERED",
+        "stateChangedAt": "2026-11-20T14:36:00.171572+00:00",
+        "ticker": "MSFT",
+        "triggerReference": null
+      },
+      {
+        "compressionScore": 0.0,
+        "distanceToTriggerPct": 0.0,
+        "evidenceQuality": "UNCERTIFIED_IEX_SEQUENCE",
+        "firstObservedAt": "2026-11-20T14:37:00.040164+00:00",
+        "invalidationReference": null,
+        "participationScore": 0.0,
+        "reasonCodes": [
+          "BASELINE_ORB5_UNARMED"
+        ],
+        "resilienceScore": 0.0,
+        "setupType": "ORB5_SHADOW_V2_INTEGRITY",
+        "state": "TRIGGERED",
+        "stateChangedAt": "2026-11-20T14:37:00.040164+00:00",
         "ticker": "SPY",
         "triggerReference": null
       },
       {
         "compressionScore": 0.0,
-        "distanceToTriggerPct": 1.222911,
+        "distanceToTriggerPct": 1.436169,
         "evidenceQuality": "UNCERTIFIED_IEX_SEQUENCE",
-        "firstObservedAt": "2026-11-19T14:38:00.048446+00:00",
-        "invalidationReference": 388.44,
-        "participationScore": 0.806682,
+        "firstObservedAt": "2026-11-20T14:38:00.123472+00:00",
+        "invalidationReference": 365.41,
+        "participationScore": 0.763471,
         "reasonCodes": [
           "NEAR_OPENING_RESISTANCE",
           "CLOSE_BELOW_OPENING_LOW"
         ],
-        "resilienceScore": 0.003676,
+        "resilienceScore": 0.062185,
         "setupType": "ORB5_SHADOW_V2_INTEGRITY",
         "state": "INVALIDATED",
-        "stateChangedAt": "2026-11-19T14:47:00.139131+00:00",
+        "stateChangedAt": "2026-11-20T15:19:00.130822+00:00",
         "ticker": "TSLA",
-        "triggerReference": 392.915
+        "triggerReference": 370.43
       }
     ],
     "lifecycleVersion": "ORB5_SHADOW_V2_INTEGRITY",
-    "sessionDate": "2026-11-19",
+    "sessionDate": "2026-11-20",
     "shadowOnly": true,
     "status": "AVAILABLE"
   },
@@ -355,10 +351,10 @@
   ],
   "promotionStatus": "INSUFFICIENT_EVIDENCE",
   "schema": "dayjumper_public_iex_v3",
-  "sessions": 51,
+  "sessions": 52,
   "status": "PROVISIONAL IEX RESEARCH \u2014 INTERRUPTED CAPTURE GAP",
   "targetAlerts": 100,
   "targetSessions": 20,
   "universe": "Fixed configured list",
-  "updatedAt": "2026-11-19T22:06:41.597812+00:00"
+  "updatedAt": "2026-11-20T22:04:26.119448+00:00"
 }
